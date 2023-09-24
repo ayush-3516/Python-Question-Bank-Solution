@@ -20,7 +20,8 @@ Client-Side Scripting involves executing scripts or code on the user's web brows
 
 Server-Side Scripting involves executing scripts or code on the web server. The server processes the scripts and generates HTML, which is then sent to the user's browser. Common server-side scripting languages are PHP, Python(with frameworks like Django or Flask), Ruby(with Ruby on Rails), and Node.js(Javascript on the server-side).
 
-||Client Side Scripting|Server Side Scripting|
-|Execution Location|User's browser.|Web Server.|
-|Control and Security|Users have to access to the code and can potentially modify it, making it less secure for critical operations|Code and operations are executed on the server, providing better control and security.|
-|Responsiveness and Performance|Enhances responsiveness and usre experience by reducing the need for server interactions for minor updates.|Performance can be affected by network latency and server processing time, but it's essential for handling complex operations and security.|
+| | Client Side Scripting | Server Side Scripting |
+|-----|------|-----|
+| Execution Location | User's browser. | Web Server. |
+| Control and Security |Users have to access to the code and can potentially modify it, making it less secure for critical operations. |Code and operations are executed on the server, providing better control and security. |
+| Responsiveness and Performance | Enhances responsiveness and usre experience by reducing the need for server interactions for minor updates. | Performance can be affected by network latency and server processing time, but it's essential for handling complex operations and security. |

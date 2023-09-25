@@ -345,12 +345,12 @@ file = open('example.txt', 'r')  # Opens for reading ('r' is the default mode)
 ```
 
 Modes for open()
-- 'r': Read (default)
-- 'w': Write (overwrites existing content)
-- 'a': Append (appends to existing content)
-- 'b': Binary mode
-- 't': Text mode (default)
-- 'x': Exclusive creation, if the file already exists, the operation will fail
+-- 'r': Read (default)
+-- 'w': Write (overwrites existing content)
+-- 'a': Append (appends to existing content)
+-- 'b': Binary mode
+-- 't': Text mode (default)
+-- 'x': Exclusive creation, if the file already exists, the operation will fail
 
 - Closing a File
 

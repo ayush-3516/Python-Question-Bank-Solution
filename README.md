@@ -1,5 +1,26 @@
 # Python Question Bank Solution
 
+# Index
+
+- [Unit - 1](#Unit-1)
+    - [1. Explain Branching in context of Python.(if, else, else...if, break)](#1-explain-branching-in-context-of-pythonif-else-elseif-break)
+    - [2. Discuss Control Structure in context of Python.(for, while)](#2-discuss-control-structure-in-context-of-python)
+    - [3. Explain strings and operations on string type.(slicing, indexing, stride, etc..)](#3-explain-strings-and-operations-on-string-typeslicing-indexing-stride-etc)
+    - [4. Explain User Defined Functions in Python](#4-explain-user-defined-functions-in-python)
+    - [5. Explain Argument Passing Methods in Function. (Positional Arguments/Keyword Arguments/Default Arguments/Default Arguments/Variable Length Arguments)](#5-explain-argument-passing-methods-in-functionpositional-argumentskeyword-argumentsdefault-argumentsvariable-length-arguments)
+    - [6. Discuss Scoping in terms of functions with sample code. (local/Global)](#6-discuss-scoping-in-terms-of-functions-with-sameple-codelocalglobal)
+    - [7. Discuss Recursion with Example.](#7-discuss-recursion-with-example)
+    - [8. What is Module? Give detailed description of it with example.](#8-what-is-module-in-python-give-detailed-description-of-it-with-example)
+    - [9. Explain Files and it's access methods.](#9-explain-files-and-its-access-methods-in-python)
+    - [10. Explain Function as Object.](#10-explain-function-as-object-in-python)
+    - [10. How function can be passed as object? And Compare it with map()](#10-how-function-can-be-passed-as-object-and-compare-it-with-map)
+    - [11. Differentiate Following Functions: (1) lambda. (2) map. (3) filter.](#11-differentiate-following-functions-ilambda-2map-3filter)
+    - [11. Explain Higher Order Functions supported by Python.](#11-explain-higher-order-functions-supported-by-python)
+    - [12. What is known as Mutability? Which are mutable types?](#12-what-is-known-as-mutability-which-are-mutable-types)
+    - []()
+    - []()
+    - []()
+    - []()
 ## Unit - 1
 
 ### **1. Explain Branching in context of Python.(if, else, else...if, break)**
@@ -255,7 +276,7 @@ another_function()
 print(y)  # Output: 20
 ```
 
-### **6. Discuss Recursion with example.**
+### **7. Discuss Recursion with example.**
 
 Recursion is a programming concept where a function calls itself in order to solve a problem. This technique allows solving complex problems by breaking them down into simpler, similar subproblems. In the context of programming, recursion often involves a base case to stop the recursion and prevent an infinite loop.
 
@@ -281,7 +302,7 @@ result = factorial(5)
 print("Factorial of 5 is:", result)  # Output: Factorial of 5 is: 120
 ```
 
-### **7. What is Module in Python? Give detailed description of it with example.**
+### **8. What is Module in Python? Give detailed description of it with example.**
 
 In Python, a module is a file that contains Python definitions, statements, and functions. Modules allow you to organize code into separate files, making it easier to manage, reuse, and distribute functionality across different parts of a program or different programs. A module can contain variables, functions, classes, and other objects.
 
@@ -361,3 +382,258 @@ Modes for open()
 - Closing a File
 
 It's important to close a file after you're done with it to free up system resources.
+```python
+file.close()
+```
+
+**File Reading**
+
+Reading Entire Contents:
+```python
+file = open('example.txt', 'r')
+content = file.read()  # Reads the entire content of the file as a string
+file.close()
+print(content)
+```
+
+Reading Lines:
+```python
+file = open('example.txt', 'r')
+lines = file.readlines()  # Reads the lines of the file and returns a list
+file.close()
+for line in lines:
+    print(line.strip())  # Strips newline characters and prints each line
+```
+
+**File Writing**
+
+Writing a File:
+```python
+file = open('output.txt', 'w')  # Opens for writing
+file.write('This is some content.\n')
+file.close()
+```
+
+Appending to a File:
+```python
+file = open('output.txt', 'a')  # Opens for appending
+file.write('This is additional content.\n')
+file.close()
+```
+
+**File Iteration**
+
+You can interate through lines in a file directly using a `for` loop.
+```python
+file = open('example.txt', 'r')
+for line in file:
+    print(line.strip())
+file.close()
+```
+
+**Using `with` statement**
+The `with` statement automatically closes the file after exiting the block, even if an exception occurs.
+```python
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+```
+
+**File Methods and Attributes**
+
+`read(size)`: Reads and returns size number of bytes from the file.
+
+`readline()`: Reads a line from the file.
+
+`readlines()`: Reads all lines of the file and returns them as a list.
+
+`write(string)`: Writes the string to the file.
+
+`tell()`: Returns the current file pointer position.
+
+`seek(offset, from)`: Moves the file pointer to a specified position (from the beginning, end, or current position).
+
+**Binary Files**
+
+To work with binary files, you can use the 'b' mode and read/write binary data.
+
+```python
+with open('binary_file.bin', 'wb') as file:
+    file.write(b'Binary data')
+```
+
+### **10. Explain Function as Object in Python.**
+
+OR
+
+### **10. How function can be passed as Object? And compare it with map().**
+
+In Python, functions are first-class citizens, which means they can be treated like any other object. This includes passing functions as arguments to other functions, returning functions from functions, and storing them in data structures. This powerful feature allows for functional programming paradigms and enhances the flexibility and expressiveness of the language.
+
+**Passing a Function as an Object**
+Here's an example demonstrating how to pass a function as an object (argument) to another function:
+
+```python
+def greet(name):
+    return f"Hello, {name}!"
+
+def process_greeting(greeter, name):
+    return greeter(name)
+
+# Pass the greet function as an argument to process_greeting
+message = process_greeting(greet, "Alice")
+print(message)  # Output: Hello, Alice!
+```
+
+**Comparison with `map()`**
+
+`map()` is a built-in Python function that allows you to apply a specified function to every item in an iterable (e.g., a list) and return an iterator that yields the results.
+
+Here's an example of using `map()` to apply a function to a list of names:
+
+```python
+def greet(name):
+    return f"Hello, {name}!"
+
+names = ["Alice", "Bob", "Charlie"]
+
+# Using map to apply the greet function to each name in the list
+greetings = map(greet, names)
+
+# Convert the map iterator to a list to see the results
+greetings_list = list(greetings)
+print(greetings_list)
+# Output: ['Hello, Alice!', 'Hello, Bob!', 'Hello, Charlie!']
+```
+
+### **11. Differentiate following functions: (i)lambda. (2)map. (3)filter.**
+
+In Python, `lambda`, `map`, and `filter` are functional programming constructs used for data manipulation and transformation. Each serves a different purpose and has distinct characteristics:
+
+**Lambda Functions**
+- Purpose: Lambda functions, also known as anonymous functions, are used to create small, one-time-use functions without a formal function definition.
+
+- Syntax: `lambda arguments: expression`
+
+- Example:
+```python
+square = lambda x: x**2
+print(square(5))  # Output: 25
+```
+
+- Characteristics:
+    - Concise and ofter used in simple operations.
+    - Cannot contain multiple expressions or statements.
+    - Typically used for short, one-line operations.
+
+**Map**
+
+- Purpose: The `map()` function is used to apply a given function to each element in an iterable(e.g., a list) and returns an iterator that yields the transformed elements.
+
+- Syntax: `map(function, iterable(s))`
+
+- Example:
+```python
+numbers = [1, 2, 3, 4]
+double_numbers = map(lambda x: x * 2, numbers)
+print(list(double_numbers))  # Output: [2, 4, 6, 8]
+```
+
+- Characteristics:
+    - Applies a function to each element in the iterable.
+    - Returns an iterator, so it's memory efficient for large datasets.
+    - Tyically used for element-wise transformations.
+
+**Filter**
+
+- Purpose: The `filter()` function is used to construct an iterator from elements of an iterable for which a function returns true.
+
+- Syntax: `filter(function, iterable)`
+
+- Example:
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers))  # Output: [2, 4, 6]
+```
+
+- Characteristics:
+    - Filters elements based on the provided function(which should return a boolean).
+    - Returns an iterator, so it's memory  efficient for large datasets.
+    - Typically used for filtering based on a condition.
+
+-------- OR ---------
+
+### **11. Explain Higher Order Functions supported by Python.**
+
+In Python, a higher-order function is a function that meets at least one of the following criteria:
+
+1. Takes a Function as an Argument:
+
+The higher-order function takes one or more functions as arguments.
+
+2. Returns a Function:
+
+The higher-order function returns a function as its result.
+
+Higher-order functions are a fundamental concept in functional programming and provide a powerful way to abstract and compose functionality.
+
+Example 1: Function as an Argument
+
+```python
+def apply_operation(operation, x):
+    return operation(x)
+
+def double(x):
+    return 2 * x
+
+def square(x):
+    return x ** 2
+
+result1 = apply_operation(double, 3)  # Passing 'double' function
+result2 = apply_operation(square, 4)  # Passing 'square' function
+
+print(result1)  # Output: 6
+print(result2)  # Output: 16
+```
+
+Example 2: Function as a Result
+
+```python
+def make_adder(n):
+    def adder(x):
+        return x + n
+    return adder
+
+add_5 = make_adder(5)
+add_10 = make_adder(10)
+
+result1 = add_5(3)  # Output: 8
+result2 = add_10(3)  # Output: 13
+
+print(result1)
+print(result2)
+```
+
+### **12. What is known as Mutability? Which are mutable types?**
+
+In programming, mutability refers to the ability of an object or data structure to be changed or modified after its creation. If a data type or object is mutable, it means that its state can be altered, elements can be added or removed, and its contents can be modified in-place without creating a new instance.
+
+Conversely, immutability refers to the characteristic of not being able to be changed after creation. Immutable objects cannot have their state altered once they are created.
+
+**Mutable Types in Python**
+
+In Python, some data types are mutable, meaning they can be modified after creation, while others are immutable and cannot be changed. Here are some common examples of mutable and immutable types in Python:
+
+Mutable Types:
+
+Lists (`list`):
+
+Lists are ordered collections of items, and their elements can be modified, added, or removed after creation.
+```python
+my_list = [1, 2, 3]
+my_list[0] = 5  # Modifying an element
+my_list.append(4)  # Adding an element
+```
+
+

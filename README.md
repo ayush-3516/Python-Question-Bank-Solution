@@ -17,10 +17,11 @@
     - [11. Differentiate Following Functions: (1) lambda. (2) map. (3) filter.](#11-differentiate-following-functions-ilambda-2map-3filter)
     - [11. Explain Higher Order Functions supported by Python.](#11-explain-higher-order-functions-supported-by-python)
     - [12. What is known as Mutability? Which are mutable types?](#12-what-is-known-as-mutability-which-are-mutable-types)
-    - []()
-    - []()
-    - []()
-    - []()
+    - [13. Differentiate Strings, Tuples, Lists and Dictionaries.](#13-differentiate-between-strings-tuples-lists-and-dictionaries)
+    - [14. List out operations on Strings, Tuples, Lists and Dictionaries.](#14-list-out-operations-on-strings-tuples-lists-and-dictionaries)
+    - [15. What is Cloning? Describe methods to overcome it.](#15-what-is-cloning-describe-methods-to-overcome-it)
+    - [16. Explain Membership Operator with example.](#16-explain-membership-operator-with-example)
+    
 ## Unit - 1
 
 ### **1. Explain Branching in context of Python.(if, else, else...if, break)**
@@ -627,7 +628,7 @@ In Python, some data types are mutable, meaning they can be modified after creat
 
 Mutable Types:
 
-Lists (`list`):
+1. Lists (`list`):
 
 Lists are ordered collections of items, and their elements can be modified, added, or removed after creation.
 ```python
@@ -636,4 +637,413 @@ my_list[0] = 5  # Modifying an element
 my_list.append(4)  # Adding an element
 ```
 
+2. Dictionaries(`dict`):
 
+Dictionaries are collections of key-value pairs, and their keys and values can be modified, added, or removed.
+```python
+my_dict = {'name': 'Alice', 'age': 30}
+my_dict['age'] = 31  # Modifying a value
+my_dict['city'] = 'New York'  # Adding a key-value pair
+```
+
+3. Sets(`set`):
+
+Sets are unordered collections of unique elements, and their elements can be modified or added.
+```python
+my_set = {1, 2, 3}
+my_set.add(4)  # Adding an element
+```
+
+### **13. Differentiate between Strings, Tuples, Lists, and Dictionaries.**
+
+**Strings (`str`)**
+- Description:
+    - A string is an ordered collection of characters.
+    - Immutable: Strings cannot be modified once created; you can only create new strings.
+- Example:
+```python
+my_str = "Hello, World!"
+```
+- Properties:
+    - Ordered: Characters have a specific order and can be accessed by index.
+    - Immutable: You cannot modify a string in-place.
+    - Iterable: You can iterate over the characters in a string.
+
+**Tuples (`tuple`)**
+- Description:
+    - A tuple is an ordered collection of elements, which can be of any data type.
+    - Immutable: Tuples cannot be modified once created; you can only create new tuples.
+- Example:
+```python
+my_tuple = (1, "Alice", 3.14)
+```
+- Properties:
+    - Ordered: Elements have a specific order and can be accessed by index.
+    - Immutable: You cannot modify a tuple in-place.
+    - Iterable: You can iterate over the elements in a tuple.
+
+**Lists (`list`)**
+- Description:
+    - A list is an ordered collection of elements, which can be of any data type.
+    - Mutable: Lists can be modified by adding, removing, or changing elements in-place.
+- Example:
+```python
+my_list = [1, "Alice", 3.14]
+```
+- Properties:
+    - Ordered: Elements have a specific order and can be accessed by index.
+    - Mutable: You can modify a list in-place by adding, removing, or changing elements.
+    - Iterable: You can iterate over the elements in a list.
+
+**Dictionaries (`dict`)**
+- Description:
+    - A dictionary is an unordered collection of key-value pairs.
+    - Mutable: Dictionaries can be modified by adding, removing, or changing key-value pairs.
+- Example:
+```python
+my_dict = {"name": "Alice", "age": 30}
+```
+- Properties:
+    - Unordered: Key-value pairs do not have a specific order and cannot be accessed by index.
+    - Mutable: You can modify a dictionary in-place by adding, removing, or changing key-value pairs.
+    - Iterable: You can iterate over the keys, values, or key-value pairs in a dictionary.
+
+### **14. List out operations on Strings, Tuples, Lists and Dictionaries.**
+
+**Strings (`str`)**
+
+1. Concatenation:
+
+Joining two or more strings together.
+
+Example:
+```python
+str1 = "Hello"
+str2 = "World"
+result = str1 + " " + str2  # Output: "Hello World"
+```
+
+2. Indexing:
+
+Accessing elements in a tuple using their indices.
+
+Example:
+```python
+my_str = "Python"
+print(my_str[0])  # Output: 'P'
+```
+
+3. Slicing:
+
+Extracting a portion of the string.
+
+Example:
+```python
+my_str = "Hello, World!"
+print(my_str[7:12])  # Output: "World"
+```
+
+4. Length:
+
+Getting the length of the string.
+
+Example:
+```python
+my_str = "Hello"
+print(len(my_str))  # Output: 5
+```
+
+5. Membership:
+
+Checking if a substring is present in the string.
+
+Example:
+```python
+my_str = "Hello, World!"
+print("World" in my_str)  # Output: True
+```
+
+6. Conversion:
+
+Converting a string to uppercase, lowercase, or titlecase.
+
+Example:
+```python
+my_str = "hello"
+print(my_str.upper())  # Output: "HELLO"
+print(my_str.lower())  # Output: "hello"
+print(my_str.title())  # Output: "Hello"
+```
+
+7. Splitting and Joining:
+
+Splitting a string into a list of substrings or joining a list of strings into a single string.
+
+Example:
+```python
+my_str = "apple,banana,cherry"
+split_result = my_str.split(",")  # Output: ['apple', 'banana', 'cherry']
+join_result = "-".join(split_result)  # Output: "apple-banana-cherry"
+```
+
+**Tuples (`tuple`)**
+
+1. Indexing:
+
+Accessing elements in a tuple using their indices.
+
+Example:
+```python
+my_tuple = (10, 20, 30)
+print(my_tuple[0])  # Output: 10
+```
+
+2. Slicing:
+
+Extracting a portion of the tuple.
+
+Example:
+```python
+my_tuple = (1, 2, 3, 4, 5)
+print(my_tuple[1:4])  # Output: (2, 3, 4)
+```
+
+3. Length:
+
+Getting the length of a tuple(number of elements).
+
+Example:
+```python
+my_tuple = (1, 2, 3)
+print(len(my_tuple))  # Output: 3
+```
+
+4. Membership:
+
+Checking in an element is present in the tuple.
+
+Example:
+```python
+my_tuple = (10, 20, 30)
+print(20 in my_tuple)  # Output: True
+```
+
+**Lists (`list`)**
+
+1. Append and Extend:
+
+Adding elements to a list.
+
+Example:
+```python
+my_list = [1, 2, 3]
+my_list.append(4)  # Appends a single element
+my_list.extend([5, 6, 7])  # Extends the list with another list
+```
+
+2. Insert:
+
+Inserting an element at a specific position in the list.
+
+Example:
+```python
+my_list = [1, 2, 3]
+my_list.insert(1, 10)  # Inserts 10 at index 1
+```
+
+3. Remove and Pop:
+
+Removing elements from the list.
+
+Example:
+```python
+my_list = [10, 20, 30]
+my_list.remove(20)  # Removes the specified element
+my_list.pop(0)  # Removes and returns the element at the specified index
+```
+
+4. Index and Count:
+
+Finding the index of an element and counting occurrences.
+
+Example:
+```python
+my_list = [1, 2, 3, 2]
+print(my_list.index(2))  # Output: 1 (index of the first occurrence of 2)
+print(my_list.count(2))  # Output: 2 (number of occurrences of 2)
+```
+
+5. Sorting and Reversing:
+
+Sorting and Reversing the elements in the list.
+
+Example:
+```python
+my_list = [5, 3, 8, 1]
+my_list.sort()  # Sorts the list in-place
+my_list.reverse()  # Reverses the list in-place
+```
+
+**Dictionaries (`dict`)**
+
+1. Accessing Values:
+
+Accessing values in a dictionary using keys.
+
+Example:
+```python
+my_dict = {"name": "Alice", "age": 30}
+print(my_dict["name"])  # Output: "Alice"
+```
+
+2. Keys, Values, and Items:
+
+Getting keys, values, and key-value pairs from a dictionary.
+
+Example:
+```python
+my_dict = {"name": "Alice", "age": 30}
+print(my_dict.keys())  # Output: dict_keys(['name', 'age'])
+print(my_dict.values())  # Output: dict_values(['Alice', 30])
+print(my_dict.items())  # Output: dict_items([('name', 'Alice'), ('age', 30)])
+```
+
+3. Adding, Modifying, and Removing Items:
+
+Adding, Modifying and Removing items in the dictionary.
+
+Example:
+```python
+my_dict = {"name": "Alice", "age": 30}
+my_dict["city"] = "New York"  # Adding a new key-value pair
+my_dict["age"] = 31  # Modifying an existing value
+del my_dict["name"]  # Removing a key-value pair
+```
+
+4. Membership:
+
+Checking if a key is present in the dictionary.
+
+Example:
+```python
+my_dict = {"name": "Alice", "age": 30}
+print("name" in my_dict)  # Output: True
+```
+
+### **15. What is Cloning? Describe methods to overcome it.**
+
+Cloning, in the context of data structures and objects, refers to the process of creating a copy of an existing object or data structure. When you clone an object, you create a new object that has the same content (values) as the original, but is a distinct entity in memory. Cloning is important to avoid unintended modifications to the original object when working with its copy.
+
+In Python, the concept of cloning is relevant mainly for mutable objects like lists, dictionaries, and custom objects, since they can be modified in-place.
+
+**Methods to Overcome Cloning Issues:**
+1. Shallow Copy:
+
+- A shallow copy creates a new object that is a duplicate of the original object, but it doesn't create copies of the objects inside the original object (e.g., elements of a list).
+- Use the copy() method for lists, dictionaries, and other mutable objects to create a shallow copy.
+- Shallow copy can still have issues if the original object contains mutable objects.
+
+```python
+import copy
+
+original_list = [1, [2, 3]]
+shallow_copy = copy.copy(original_list)
+
+shallow_copy[1][0] = 5  # This will affect the original list too
+```
+
+2. Deep Copy:
+
+- A deep copy creates a new object that is a duplicate of the original object, including all objects inside it (recursively).
+- Use the `deepcopy()` method from the copy module for creating deep copies.
+
+```python
+import copy
+
+original_list = [1, [2, 3]]
+deep_copy = copy.deepcopy(original_list)
+
+deep_copy[1][0] = 5  # This won't affect the original list
+```
+
+3. Slice Operator (for Lists):
+
+- Using the slice operator ([:]) can create a shallow copy of a list.
+- This works specifically for lists and provides a simple way to create a new list with the same elements.
+
+```python
+original_list = [1, 2, 3]
+shallow_copy = original_list[:]
+
+shallow_copy[0] = 5  # This won't affect the original list
+```
+
+4. Constructors(for Lists and Dictionaries):
+
+- Creating a new list or dictionary using the constructor of the respective type can also achieve a shallow copy.
+
+```python
+original_list = [1, 2, 3]
+shallow_copy = list(original_list)  # Shallow copy using list constructor
+
+original_dict = {"a": 1, "b": 2}
+shallow_copy_dict = dict(original_dict)  # Shallow copy using dict constructor
+```
+
+5. Custom Cloning(for Custom Objects):
+
+- Implement a custom method within your class to create a new instance and copy relevant attributes or data.
+
+```python
+class CustomObject:
+    def __init__(self, value):
+        self.value = value
+
+    def clone(self):
+        return CustomObject(self.value)
+
+original_obj = CustomObject(42)
+cloned_obj = original_obj.clone()
+```
+
+### **16. Explain Membership Operator with example.**
+
+Membership operators in Python are used to test for membership in a sequence, such as strings, lists, tuples, or dictionaries. There are two membership operators: `in` and `not in`.
+
+`in` Operator
+The `in` operator checks if a value exists in a sequence. It returns `True` if the value is present and `False` otherwise.
+
+Syntax:
+
+```python
+value in sequence
+```
+
+Example:
+
+```python
+my_list = [1, 2, 3, 4, 5]
+
+print(3 in my_list)  # Output: True
+print(6 in my_list)  # Output: False
+```
+
+not in Operator
+The not in operator checks if a value does not exist in a sequence. It returns True if the value is not present and False otherwise.
+
+Syntax:not in Operator
+The not in operator checks if a value does not exist in a sequence. It returns True if the value is not present and False otherwise.
+
+Syntax:
+```python
+value not in sequence
+```
+
+Example:
+
+```python
+my_str = "Hello, World!"
+
+print('H' not in my_str)  # Output: False
+print('x' not in my_str)  # Output: True
+```

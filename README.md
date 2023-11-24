@@ -1220,3 +1220,577 @@ This function is defined inside the child 2.
 ### **18. Explain Data Abstraction/Data Hiding.**
 
 Data abstraction that hides complex implementation details while exposing only essential information and functionalities to users. In Python, we can achieve data abstraction by using abstract classes and abstract classes can be created using abc (abstract base class) module and abstractmethod of abc module.
+
+As a property, abstract classes can have any number of abstract methods coexisting with any number of other methods. 
+
+Abstract methods do not contain any implementation. Instead, all the implementations can be defined in the methods of sub-classes that inherit the abstract class.
+
+Implementation of Data Abstraction in Python:
+
+In the below code, we have implemented data abstraction using abstract class and method. Firstly, we import the required modules or classes from abc library then we create a base class ‘Car’ that inherited from ‘ABC’ class that we have imported. Inside base class we create init function, abstract function and non-abstract functions. To declare abstract function printDetails we use “@abstractmethod” decorator. After that we create child class hatchback and suv. Since, these child classes inherited from abstract class so, we need to write the implementation of all abstract function declared in the base class. We write the implementation of abstract method in both child class. We create an instance of a child class and call the printDetails method. In this way we can achieve the data abstraction.
+
+```python
+# Import required modules
+from abc import ABC, abstractmethod
+
+# Create Abstract base class
+class Car(ABC):
+def __init__(self, brand, model, year):
+	self.brand = brand
+	self.model = model
+	self.year = year
+	
+# Create abstract method	 
+@abstractmethod
+def printDetails(self):
+	pass
+
+# Create concrete method
+def accelerate(self):
+	print("speed up ...")
+
+def break_applied(self):
+	print("Car stop")
+	
+# Create a child class
+class Hatchback(Car):
+
+def printDetails(self):
+	print("Brand:", self.brand);
+	print("Model:", self.model);
+	print("Year:", self.year);
+
+def Sunroof(self):
+	print("Not having this feature")
+	
+# Create a child class
+class Suv(Car):
+
+def printDetails(self):
+	print("Brand:", self.brand);
+	print("Model:", self.model);
+	print("Year:", self.year);
+
+def Sunroof(self):
+	print("Available")
+
+	
+car1 = Hatchback("Maruti", "Alto", "2022");
+
+car1.printDetails()
+car1.accelerate()
+
+```
+Output:
+```python
+Brand: Maruti
+Model: Alto
+Year: 2022
+speed up ...
+```
+
+### **19. Explain `isinstance()` method.**
+
+The isinstance() function returns True if the specified object is of the specified type, otherwise False.
+
+```python
+x = isinstance("Hello", (str, float, int, str, list, dict, tuple))
+
+print(x) # True
+```
+
+### **20. Explain Method Overriding in Python.**
+
+Method overriding is an ability of any object-oriented programming language that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its super-classes or parent classes. When a method in a subclass has the same name, same parameters or signature and same return type(or sub-type) as a method in its super-class, then the method in the subclass is said to override the method in the super-class.
+
+```python
+# Python program to demonstrate 
+# method overriding 
+
+
+# Defining parent class 
+class Parent(): 
+	
+	# Constructor 
+	def __init__(self): 
+		self.value = "Inside Parent"
+		
+	# Parent's show method 
+	def show(self): 
+		print(self.value) 
+		
+# Defining child class 
+class Child(Parent): 
+	
+	# Constructor 
+	def __init__(self): 
+		self.value = "Inside Child"
+		
+	# Child's show method 
+	def show(self): 
+		print(self.value) 
+		
+		
+# Driver's code 
+obj1 = Parent() 
+obj2 = Child() 
+
+obj1.show() 
+obj2.show() 
+```
+
+Output:
+```
+Inside Parent
+Inside Child
+```
+
+### **21. Explain `issubclass()` method in python.**
+
+The issubclass() function returns True if the specified object is a subclass of the specified object, otherwise False.
+
+```python
+class myAge:
+  age = 36
+
+class myObj(myAge):
+  name = "John"
+  age = myAge
+
+x = issubclass(myObj, myAge)
+
+print(x) # True
+```
+
+### **22. Discuss Encapsulation.**
+
+Encapsulation is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class.
+
+```python
+class Students:
+   def __init__(self, name, rank, points):
+      self.name = name
+      self.rank = rank
+      self.points = points
+
+   # custom function
+   def demofunc(self):
+      print("I am "+self.name)
+      print("I got Rank ",+self.rank)
+
+# create 4 objects
+st1 = Students("Steve", 1, 100)
+st2 = Students("Chris", 2, 90)
+st3 = Students("Mark", 3, 76)
+st4 = Students("Kate", 4, 60)
+
+# call the functions using the objects created above
+st1.demofunc()
+st2.demofunc()
+st3.demofunc()
+st4.demofunc()
+```
+Output:
+```
+I am Steve
+I got Rank  1
+I am Chris
+I got Rank  2
+I am Mark
+I got Rank  3
+I am Kate
+I got Rank  4
+```
+
+### **23. Implementation of Linear Search/Binary Search(Recursive/Non-Recursive).**
+
+**Linear Search**
+
+# Linear Search in Python
+
+```python
+def linearSearch(array, n, x):
+
+    # Going through array sequencially
+    for i in range(0, n):
+        if (array[i] == x):
+            return i
+    return -1
+
+
+array = [2, 4, 0, 1, 9]
+x = 1
+n = len(array)
+result = linearSearch(array, n, x)
+if(result == -1):
+    print("Element not found")
+else:
+    print("Element found at index: ", result)
+```
+
+**Binary Search(Recursive)**
+
+```python
+def binary_search(my_list, low, high, elem):
+    if high >= low:
+ 
+        mid = (high + low) // 2
+ 
+        if my_list[mid] == elem:
+            return mid
+ 
+        elif my_list[mid] > elem:
+            return binary_search(my_list, low, mid - 1, elem)
+ 
+        else:
+            return binary_search(my_list, mid + 1, high, elem)
+ 
+    else:
+        return -1
+        
+my_list = [ 1, 9, 11, 21, 34, 54, 67, 90 ]
+elem_to_search = 1
+print("The list is")
+print(my_list)
+
+my_result = binary_search(my_list,0,len(my_list)-1,elem_to_search)
+ 
+if my_result != -1:
+    print("Element found at index ", str(my_result))
+else:
+    print("Element not found!")
+```
+Output:
+```
+The list is
+[1, 9, 11, 21, 34, 54, 67, 90]
+Element found at index 0
+```
+
+**Binary Search(Non-Recursive)**
+
+```python
+def binary_search(my_list, elem):
+    low = 0
+    high = len(my_list) - 1
+    mid = 0
+ 
+    while low <= high:
+ 
+        mid = (high + low) // 2
+        if my_list[mid] < elem:
+            low = mid + 1
+ 
+        elif my_list[mid] > elem:
+            high = mid - 1
+ 
+        else:
+            return mid
+ 
+    return -1
+ 
+my_list = [ 1, 9, 11, 21, 34, 54, 67, 90 ]
+elem_to_search = 1
+print("The list is")
+print(my_list)
+
+my_result = binary_search(my_list, elem_to_search)
+ 
+if my_result != -1:
+    print("Element found at index ", str(my_result))
+else:
+    print("Element not found!")
+```
+Output:
+```
+The list is
+[1, 9, 11, 21, 34, 54, 67, 90]
+Element found at index  0
+```
+
+### **24. Explain Wrapper Function in Python.**
+
+wrappers are the functionality available in Python to wrap a function with another function to extend its behavior. Now, the reason to use wrappers in our code lies in the fact that we can modify a wrapped function without actually changing it. They are also known as decorators.
+
+```python
+
+# defining decorator function named as function1
+def function2(function1):
+  # defining wrapper function
+  def wrapper_function():
+    return function1()
+  return wrapper_function
+ 
+# Function we want to wrap
+def function1():
+  print("This is wrapped function.")
+ 
+# Holds the returned function in a variable
+var = function2(function1)
+# executing var function
+var()
+```
+Output:
+```
+This is wrapped function.
+```
+
+### **25. Write a code to implement divide and conquer/merge sort/selection sort.
+
+**Merge Sort**
+
+```python
+def mergeSort(array):
+    if len(array) > 1:
+
+        #  r is the point where the array is divided into two subarrays
+        r = len(array)//2
+        L = array[:r]
+        M = array[r:]
+
+        # Sort the two halves
+        mergeSort(L)
+        mergeSort(M)
+
+        i = j = k = 0
+
+        # Until we reach either end of either L or M, pick larger among
+        # elements L and M and place them in the correct position at A[p..r]
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+
+        # When we run out of elements in either L or M,
+        # pick up the remaining elements and put in A[p..r]
+        while i < len(L):
+            array[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
+
+
+# Print the array
+def printList(array):
+    for i in range(len(array)):
+        print(array[i], end=" ")
+    print()
+
+
+# Driver program
+if __name__ == '__main__':
+    array = [6, 5, 12, 10, 9, 1]
+
+    mergeSort(array)
+
+    print("Sorted array is: ")
+    printList(array)
+
+```
+
+Output:
+```
+Sorted array is:
+1 5 6 9 10 12
+```
+
+**Selection Sort**
+
+```python
+# Selection sort in Python
+
+
+def selectionSort(array, size):
+   
+    for step in range(size):
+        min_idx = step
+
+        for i in range(step + 1, size):
+         
+            # to sort in descending order, change > to < in this line
+            # select the minimum element in each loop
+            if array[i] < array[min_idx]:
+                min_idx = i
+         
+        # put min at the correct position
+        (array[step], array[min_idx]) = (array[min_idx], array[step])
+
+
+data = [-2, 45, 0, 11, -9]
+size = len(data)
+selectionSort(data, size)
+print('Sorted Array in Ascending Order:')
+print(data)
+```
+Output:
+```
+Sorted Array in Ascending Order:
+[-9, -2, 0, 11, 45]
+```
+
+### **26. Write a code for implement tim sort.**
+
+### **27. Linked list concept in python.**
+
+A linked list is a sequence of data elements, which are connected together via links. Each data element contains a connection to another data element in form of a pointer. Python does not have linked lists in its standard library.
+
+```python
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+    def __repr__(self):
+        nodes = []
+        for node in self:
+            nodes.append(node.val)
+        return " -> ".join(nodes)
+    def add_to_tail(self, node):
+        if self.head == None:
+            self.head = node
+            return
+        for current_node in self:
+            pass
+        current_node.set_next(node)
+    def remove_from_head(self):
+        if self.head == None:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        return temp
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+    def set_next(self, node):
+        self.next = node
+    def __repr__(self):
+        return self.val
+```
+
+### **28. Describe methods of RegEx in python.**
+
+A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
+
+Python has a built-in package called `re`, which can be used to work with Regular Expressions.
+
+The re module offers a set of functions that allows us to search a string for a match:
+
+`findall` - returns a list containing all matches.
+
+```python
+import re
+
+#Return a list containing every occurrence of "ai":
+
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x)
+```
+Output:
+```
+['ai', 'ai']
+```
+
+`search` - searches for a match, and returns a Match object if there is a match.
+
+If there is more than one match, only the first occurence of the match will be returned. If no matches are found, the value None is returned.
+
+```python
+import re
+
+txt = "The rain in Spain"
+x = re.search("\s", txt)
+
+print("The first white-space character is located in position:", x.start()) 
+
+```
+Output:
+```
+The first white-space character is located in position: 3
+```
+
+`split` - returns a list where the string has been split at each match.
+
+```python
+import re
+
+#Split the string at every white-space character:
+
+txt = "The rain in Spain"
+x = re.split("\s", txt)
+print(x)
+```
+Output:
+```
+['The', 'rain', 'in', 'Spain']
+```
+
+`sub` - replaces the matches with the text of your choice.
+
+```python
+import re
+
+#Replace all white-space characters with the digit "9":
+
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt)
+print(x)
+```
+Output:
+```
+The9rain9in9Spain
+```
+
+### **29. Types of Pattern Matching in Python RegEx.**
+
+- Literal Characters: You can match literal characters by including them in the pattern. For example, the pattern "cat" will match the string "cat" in the input.
+
+```python
+import re
+
+pattern = re.compile(r'cat')
+result = pattern.match('concatenation')
+```
+
+- Character Classes: Character classes allow you to match any one of a set of characters. For example, the pattern [aeiou] will match any vowel.
+
+```python
+import re
+
+pattern = re.compile(r'[aeiou]')
+result = pattern.search('apple')
+```
+
+- Quantifiers: Quantifiers specify the number of occurrences of a character or group. For example, + matches one or more occurrences, * matches zero or more occurrences, and ? matches zero or one occurrence.
+
+```python
+import re
+
+pattern = re.compile(r'\d+')  # Matches one or more digits
+result = pattern.search('12345')
+```
+
+- Anchors: Anchors are used to specify the position of a match in the input string. `^` matches the start of a string, and `$` matches the end.
+
+```python
+import re
+
+pattern = re.compile(r'^start')
+result = pattern.match('start of something')
+```
+
+### **30. Expressions based on R.E.**
+
+```

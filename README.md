@@ -21,6 +21,53 @@
     - [14. List out operations on Strings, Tuples, Lists and Dictionaries.](#14-list-out-operations-on-strings-tuples-lists-and-dictionaries)
     - [15. What is Cloning? Describe methods to overcome it.](#15-what-is-cloning-describe-methods-to-overcome-it)
     - [16. Explain Membership Operator with example.](#16-explain-membership-operator-with-example)
+- [Unit - 2]()
+    - [17. List and explain types of inheritance in python with example.]()
+    - [18. Explain Data Abstraction/Data Hiding]()
+    - [19. Explain isinstance() method.]()
+    - [20. Explain Method overriding.]()
+    - [21. Explain issubclass() method.]()
+    - [22. Discuss Encapsulation.]()
+    - [23. Implementation of linear search/binary search(recursive/non-recursive)]()
+    - [24. Explain Wrapper Function.]()
+    - [25. Write a code to implement divide and conquer/merge sort/selection sort.]()
+    - [26. Write a code to implement tim sort.]()
+    - [27. Lisked list concept in python.]()
+    - [28. Describe methods of regular expressions(RegEx).]()
+    - [29. Types of Pattern Formation in Python RegEx.]()
+    - [30. Expressions based RegEx.]()
+    - [31. Discuss Thread Control Block(TCB).]()
+    - [32. Thread Control Methods.]()
+    - [33. Multithreading in Python.]()
+    - [34. Multithreading with lock() synchronization.]()
+    - [35. Client Server Chat Applicatios and required commands.]()
+- [Unit - 3]()
+    - [36. Describe methods to create an array using numpy.]()
+    - [37. When to use reshape method in numpy? Explain with example.]()
+    - [38. Apply Arithmetic operators, relational operators and logical operators on vector using numpy.]()
+    - [39. Explain compount condition in numpy.]()
+    - [40. How to create an alias of an array using numpy?]()
+    - [41. Briefly explain matrix module.]()
+    - [42. Explain generation of random number, all zero valued matrices, all ones valued matrices, identity matrix.]()
+    - [43. Draw plot for given data using Pylab/matplotlib and numpy.]()
+    - [44. Implementation of client and server in context of chat application.]()
+    - [45. List and explain methods supported by tkinter to place/arrange various widgets in window.]()
+    - [46. Explain steps to create widgets. Write python program to display a label on clicking a button using tkinter.(any widgets)]()
+    - [47. Significance of Intvar class in tkinter.]()
+    - [48. Write a code to draw rectangle with border color of blue and inner filling of color yellow using turtle.]()
+    - [49. List and explain methods supported by tutle module.]()
+- [Unit - 4]()
+    - [50.Explain DataFrames/Series with row header and column header in pandas.]()
+    - [51. How to import external files(Example: txt, excel, csv) using pandas?]()
+    - [52. Discuss data retrieval methods of pandas.]()
+    - [53. How to search specific value based on certain condition or combination of conditions in pandas.]()
+    - [54. Explain groupby and sort_values in pandas.]()
+    - [55. Draw plot for given data using Pylab/matplotlib and pandas.]()
+    - [56. Describe libraries and methods used in flask.]()
+    - [57. How to use Cookies and flash messages in flask.]()
+    - [58. List and explain flask extensions.]()
+    - [59. How to embed HTML templates in flask?]()
+    - [60. Explain tensorflow architecture and components.]()
     
 ## Unit - 1
 
@@ -1047,3 +1094,129 @@ my_str = "Hello, World!"
 print('H' not in my_str)  # Output: False
 print('x' not in my_str)  # Output: True
 ```
+
+## Unit - 2
+
+### **17. List and explain types of Inheritance in python with example.**
+
+**Single Inheritance** Single inheritance allows a derivate class to inherit properties of one parent class, and this allows code reuse and the introduction of additional features in existing code.
+
+```python
+class Parent1:  
+    def func_1(self):  
+        print ("This function is defined inside the parent class.")  
+  
+class Child1(Parent1):  
+    def func_2(self):  
+        print ("This function is defined inside the child class.")  
+  
+# Driver's code  
+object = Child1()  
+object.func_1()  
+object.func_2() 
+```
+Output:
+```
+This function is defined inside the parent class.
+This function is defined inside the child class.
+```
+
+**Multiple Inheritance** If a class is able to be created from multiple base classes, this kind of Inheritance is known as multiple Inheritance. When there is multiple Inheritance, each of the attributes that are present in the classes of the base has been passed on to the class that is derived from it.
+
+```python
+class Mother1:  
+    mothername1 = ""  
+    def mother1(self):  
+        print(self.mothername1)  
+  
+class Father1:  
+    fathername1 = ""  
+    def father1(self):  
+        print(self.fathername1)  
+  
+class Son1(Mother1, Father1):  
+    def parents1(self):  
+        print ("Father name is :", self.fathername1)  
+        print ("Mother name is :", self.mothername1)  
+  
+s1 = Son1()  
+s1.fathername1 = "Rajesh"  
+s1.mothername1 = "Shreya"  
+s1.parents1() 
+```
+Output:
+```
+Father name is: Rajesh
+Mother name is: Shreya
+```
+
+**Multilevel inheritance**, the features that are part of the original class, as well as the class that is derived from it, are passed on to the new class. It is similar to a relationship involving grandparents and children.
+
+```python
+class Grandfather1:  
+  
+    def __init__(self, grandfathername1):  
+        self.grandfathername1 = grandfathername1  
+  
+class Father1(Grandfather1):  
+    def __init__(self, fathername1, grandfathername1):  
+        self.fathername1 = fathername1  
+  
+        Grandfather1.__init__(self, grandfathername1)  
+  
+class Son1(Father1):  
+    def __init__(self,sonname1, fathername1, grandfathername1):  
+        self.sonname1 = sonname1  
+  
+        Father1.__init__(self, fathername1, grandfathername1)  
+  
+    def print_name(self):  
+        print('Grandfather name is :', self.grandfathername1)  
+        print("Father name is :", self.fathername1)  
+        print("Son name is :", self.sonname1)  
+  
+s1 = Son1('John', 'John Jr', 'John Jr Jr')  
+print (s1.grandfathername1)  
+s1.print_name() 
+```
+Output:
+```
+John Jr Jr
+Grandfather name is : John Jr Jr
+Father name is : John Jr
+Son name is : John
+```
+
+**Hierarchical Inheritance** If multiple derived classes are created from the same base, this kind of Inheritance is known as hierarchical inheritance. In this instance, we have two base classes as a parent (base) class as well as two children (derived) classes.
+
+```python
+class Parent1:  
+    def func_1(self):  
+        print ("This function is defined inside the parent class.")  
+  
+class Child_1(Parent1):  
+    def func_2(self):  
+        print ("This function is defined inside the child 1.")  
+  
+class Child_2(Parent1):  
+    def func_3(self):  
+        print ("This function is defined inside the child 2.")  
+  
+object1 = Child_1()  
+object2 = Child_2()  
+object1.func_1()  
+object1.func_2()  
+object2.func_1()  
+object2.func_3() 
+```
+Output:
+```
+This function is defined inside the parent class.
+This function is defined inside the child 1.
+This function is defined inside the parent class.
+This function is defined inside the child 2.
+```
+
+### **18. Explain Data Abstraction/Data Hiding.**
+
+Data abstraction that hides complex implementation details while exposing only essential information and functionalities to users. In Python, we can achieve data abstraction by using abstract classes and abstract classes can be created using abc (abstract base class) module and abstractmethod of abc module.
